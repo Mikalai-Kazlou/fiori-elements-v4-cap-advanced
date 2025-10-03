@@ -77,24 +77,33 @@ annotate service.Passenger with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Value : CustomerID,
+            Value : FullName,
         },
         {
             $Type : 'UI.DataField',
-            Value : createdAt,
+            Value : CountryCode.code,
         },
         {
             $Type : 'UI.DataField',
-            Value : createdBy,
+            Value : CountryCode.descr,
         },
         {
             $Type : 'UI.DataField',
-            Value : LastChangedAt,
+            Value : PostalCode,
         },
         {
             $Type : 'UI.DataField',
-            Value : LastChangedBy,
+            Value : Street,
         },
+        {
+            $Type : 'UI.DataField',
+            Value : City,
+        },
+    ],
+    UI.SelectionFields : [
+        CountryCode_code,
+        City,
+        PostalCode,
     ],
 );
 

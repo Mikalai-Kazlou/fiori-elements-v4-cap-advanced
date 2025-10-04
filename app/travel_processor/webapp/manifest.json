@@ -152,7 +152,8 @@
                                         "route": "TravelObjectPage"
                                     }
                                 }
-                            }
+                            },
+                            "enhanceI18n": "i18n/i18n_en_custom.properties"
                         }
                     },
                     "controlAggregation": "beginColumnPages",

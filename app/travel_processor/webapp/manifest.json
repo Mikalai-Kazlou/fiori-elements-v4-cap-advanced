@@ -153,7 +153,8 @@
                                     }
                                 }
                             },
-                            "enhanceI18n": "i18n/i18n_en_custom.properties"
+                            "enhanceI18n": "i18n/i18n_en_custom.properties",
+                            "hideFilterBar": true
                         }
                     },
                     "controlAggregation": "beginColumnPages",

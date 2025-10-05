@@ -80,6 +80,7 @@ init() {
       .from (BookingSupplement.drafts).where({BookSupplUUID:req.data.BookSupplUUID})
     const { travel } = await SELECT.one `to_Travel_TravelUUID as travel` .from (Booking.drafts)
       .where `BookingUUID = ${booking} `
+    await this._update_totals_supplement (booking)
     return this._update_totals4 (travel)
   }})
 
@@ -149,7 +150,7 @@ init() {
   // Travel is accepted = 100% -> see acceptTravel
   // Travel is rejected = 0% -> see rejectTravel
 
- this.before ('SAVE', 'Travel', async req => {
+  this.before ('SAVE', 'Travel', async req => {
     if (!req.event === 'CREATE' && !req.event === 'UPDATE') return //only calculate if create or update
     let score = 10
     const { TravelUUID } = req.data
@@ -162,6 +163,16 @@ init() {
     if (score > 90) score = 90;
     req.data.Progress = score
   })
+
+
+   /**
+   * Update the Booking's TotalSupplPrice
+   */
+  this._update_totals_supplement = async function (booking) {
+    const { totals } = await SELECT.one `coalesce (sum (Price),0) as totals` .from (BookingSupplement.drafts) .where
+     `to_Booking_BookingUUID = ${booking}`
+    return  UPDATE (Booking.drafts, booking) .with({TotalSupplPrice: totals})
+  }
 
 
   //

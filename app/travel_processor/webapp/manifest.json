@@ -164,7 +164,23 @@
                                 }
                             },
                             "enhanceI18n": "i18n/i18n_en_custom.properties",
-                            "hideFilterBar": true
+                            "hideFilterBar": true,
+                            "views": {
+                                "paths": [
+                                    {
+                                        "key": "tableViewOpen",
+                                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableViewOpen"
+                                    },
+                                    {
+                                        "key": "tableViewAccepted",
+                                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableViewAccepted"
+                                    },
+                                    {
+                                        "key": "tableViewCanceled",
+                                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableViewCanceled"
+                                    }
+                                ]
+                            }
                         }
                     },
                     "controlAggregation": "beginColumnPages",

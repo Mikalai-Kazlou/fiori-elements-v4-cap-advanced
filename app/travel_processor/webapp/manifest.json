@@ -142,6 +142,16 @@
                             "controlConfiguration": {
                                 "@com.sap.vocabularies.UI.v1.SelectionFields": {
                                     "useSemanticDateRange": true
+                                },
+                                "@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "columns": {
+                                        "DataFieldForAnnotation::DataPoint::Progress": {
+                                            "width": "12rem"
+                                        },
+                                        "DataField::TravelStatus_code": {
+                                            "width": "10rem"
+                                        }
+                                    }
                                 }
                             },
                             "variantManagement": "Page",

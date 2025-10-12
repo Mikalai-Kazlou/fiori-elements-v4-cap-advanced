@@ -505,3 +505,7 @@ annotate TravelService.Travel with {
                 @UI.Placeholder  : '{i18n>DescriptionPlaceholder}'
 };
 
+annotate TravelService.Travel @(Common.SideEffects #ReactonItemCreationOrDeletion: {
+    SourceEntities  : [to_Booking],
+    TargetProperties: ['TotalPrice'],
+});

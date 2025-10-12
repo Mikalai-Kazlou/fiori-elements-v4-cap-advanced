@@ -87,21 +87,54 @@ annotate my.Booking {
     ]
   };
 
-  ConnectionID @Common.ValueList: {
-    CollectionPath : 'Flight',
-    Label : '',
-    Parameters : [
-      {$Type: 'Common.ValueListParameterInOut', LocalDataProperty: to_Carrier_AirlineID,    ValueListProperty: 'AirlineID'},
-      {$Type: 'Common.ValueListParameterInOut', LocalDataProperty: ConnectionID, ValueListProperty: 'ConnectionID'},
-      {$Type: 'Common.ValueListParameterDisplayOnly',  ValueListProperty: 'FlightDate'},
-      {$Type: 'Common.ValueListParameterDisplayOnly',  ValueListProperty: 'Price'},
-      {$Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'CurrencyCode_code'},
-      {$Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'to_Airline/Name'},
-      {$Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'PlaneType'},
-      {$Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'MaximumSeats'},
-      {$Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'OccupiedSeats'}
+  ConnectionID  @Common.ValueListWithFixedValues: false
+                @Common.ValueList               : {
+    CollectionPath              : 'Flight',
+    Label                       : '',
+    Parameters                  : [
+      {
+        $Type            : 'Common.ValueListParameterInOut',
+        LocalDataProperty: to_Carrier_AirlineID,
+        ValueListProperty: 'AirlineID'
+      },
+      {
+        $Type            : 'Common.ValueListParameterInOut',
+        LocalDataProperty: ConnectionID,
+        ValueListProperty: 'ConnectionID'
+      },
+      {
+        $Type            : 'Common.ValueListParameterInOut',
+        LocalDataProperty: FlightDate,
+        ValueListProperty: 'FlightDate'
+      },
+      {
+        $Type            : 'Common.ValueListParameterInOut',
+        LocalDataProperty: FlightPrice,
+        ValueListProperty: 'Price'
+      },
+      {
+        $Type            : 'Common.ValueListParameterInOut',
+        LocalDataProperty: CurrencyCode_code,
+        ValueListProperty: 'CurrencyCode_code'
+      },
+      {
+        $Type            : 'Common.ValueListParameterDisplayOnly',
+        ValueListProperty: 'to_Airline/Name'
+      },
+      {
+        $Type            : 'Common.ValueListParameterDisplayOnly',
+        ValueListProperty: 'PlaneType'
+      },
+      {
+        $Type            : 'Common.ValueListParameterDisplayOnly',
+        ValueListProperty: 'MaximumSeats'
+      },
+      {
+        $Type            : 'Common.ValueListParameterDisplayOnly',
+        ValueListProperty: 'OccupiedSeats'
+      }
     ],
-    PresentationVariantQualifier: 'SortOrderPV'  // use presentation variant to sort by FlightDate desc
+    PresentationVariantQualifier: 'SortOrderPV' // use presentation variant to sort by FlightDate desc
   };
 
   FlightDate @Common.ValueList: {

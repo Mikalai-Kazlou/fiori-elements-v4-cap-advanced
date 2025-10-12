@@ -2,8 +2,6 @@ using TravelService from '../../srv/travel-service';
 using from '../../db/schema';
 using from '../../db/master-data';
 
-
-
 //
 // annotatios that control the fiori layout
 //
@@ -139,7 +137,7 @@ annotate TravelService.Travel with @(
     UI.DataPoint #Progress : {
         Value : Progress,
         Visualization : #Progress,
-        TargetValue : 100,
+        TargetValue : {$edmJson: {$Path: '/SupplementScope/TargetValue'}},
     },
     UI.SelectionPresentationVariant #tableViewOpen : {
         $Type : 'UI.SelectionPresentationVariantType',
@@ -284,7 +282,7 @@ annotate TravelService.Travel with @(
         $Type : 'UI.DataPointType',
         Value : Progress,
         Title : '{i18n>ProgressOfTravel}',
-        TargetValue : 100,
+        TargetValue : {$edmJson: {$Path: '/SupplementScope/TargetValue'}},
         Visualization : #Progress,
     },
 );
@@ -371,16 +369,16 @@ annotate TravelService.Booking with @(
     },
     UI.DataPoint #TotalSupplPrice: {
         Value                 : TotalSupplPrice,
-        MinimumValue          : 0,
-        MaximumValue          : 120,
-        TargetValue           : 100,
+        MinimumValue          : {$edmJson: {$Path: '/SupplementScope/MinimumValue'}},
+        MaximumValue          : {$edmJson: {$Path: '/SupplementScope/MaximumValue'}},
+        TargetValue           : {$edmJson: {$Path: '/SupplementScope/TargetValue'}},
         Visualization         : #BulletChart,
         //  Criticality : TotalSupplPrice, // it has precedence over criticalityCalculation => in order to have the criticality color do not use it
         CriticalityCalculation: {
             $Type                 : 'UI.CriticalityCalculationType',
             ImprovementDirection  : #Maximize,
-            DeviationRangeLowValue: 20,
-            ToleranceRangeLowValue: 75
+            DeviationRangeLowValue: {$edmJson: {$Path: '/SupplementScope/DeviationRangeLowValue'}},
+            ToleranceRangeLowValue: {$edmJson: {$Path: '/SupplementScope/ToleranceRangeLowValue'}}
         }
     },
     UI.Chart #TotalSupplPrice    : {

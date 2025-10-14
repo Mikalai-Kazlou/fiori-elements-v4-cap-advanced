@@ -49,6 +49,7 @@ entity BookingSupplement : managed {
   BookingSupplementID : Integer @Core.Computed;
   Price               : Decimal(16, 3);
   CurrencyCode        : Currency;
+  DeliveryPreference  : Association to MealOptionDeliveryPreference;
   to_Booking          : Association to Booking;
   to_Travel           : Association to Travel;
   to_Supplement       : Association to Supplement;
@@ -87,7 +88,15 @@ entity TravelStatus : CodeList {
   createDeleteHidden: Boolean;
   insertDeleteRestriction: Boolean; // = NOT createDeleteHidden
   cancelRestrictions: Boolean; // is true for cancelled travels
-}
+};
+
+entity MealOptionDeliveryPreference: CodeList {
+  key code : String enum {
+    SoonAfterTakeoff = 'S';
+    Midflight = 'M';
+    Late = 'L';
+  } default 'M'
+};
 
 annotate Travel with @(
 Capabilities: {

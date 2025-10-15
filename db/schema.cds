@@ -65,7 +65,10 @@ entity SupplementScope {
 };
 
 type BookingData: {
-  HasNewBookings: Boolean
+  TotalBookingsCount: Integer;
+  NewBookingsCount: Integer;
+  AcceptedBookingsCount: Integer;
+  CancelledBookingsCount: Integer;
 };
 
 

@@ -164,13 +164,14 @@
                             "content": {
                                 "body": {
                                     "sections": {
-                                        "OwnBookings": {
-                                            "template": "sap.fe.cap.customer.ext.fragment.OwnBookings",
+                                        "Bookings": {
+                                            "template": "sap.fe.cap.customer.ext.fragment.Bookings",
                                             "position": {
                                                 "placement": "After",
                                                 "anchor": "GeneratedFacet1"
                                             },
-                                            "title": "{i18n>ownBookings}"
+                                            "title": "{i18n>ownBookings}",
+                                            "type": "XMLFragment"
                                         }
                                     }
                                 }
@@ -194,7 +195,7 @@
         "extends": {
             "extensions": {
                 "sap.ui.controllerExtensions": {
-                    "sap.fe.templates.ObjectPage.ObjectPageController": {
+                    "sap.fe.templates.ObjectPage.ObjectPageController#sap.fe.cap.customer::PassengerObjectPage": {
                         "controllerName": "sap.fe.cap.customer.ext.controller.PassengerOPExtend"
                     }
                 }

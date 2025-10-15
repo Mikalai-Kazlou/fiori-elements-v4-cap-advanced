@@ -141,7 +141,8 @@
                                         "route": "PassengerObjectPage"
                                     }
                                 }
-                            }
+                            },
+                            "initialLoad": "Enabled"
                         }
                     }
                 },
@@ -157,6 +158,20 @@
                                 "to_Booking": {
                                     "detail": {
                                         "route": "BookingObjectPage"
+                                    }
+                                }
+                            },
+                            "content": {
+                                "body": {
+                                    "sections": {
+                                        "OwnBookings": {
+                                            "template": "sap.fe.cap.customer.ext.fragment.OwnBookings",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "GeneratedFacet1"
+                                            },
+                                            "title": "{i18n>ownBookings}"
+                                        }
                                     }
                                 }
                             }

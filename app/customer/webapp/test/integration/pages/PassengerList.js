@@ -10,7 +10,7 @@ sap.ui.define(['sap/fe/test/ListReport'], function(ListReport) {
         {
             appId: 'sap.fe.cap.customer',
             componentId: 'PassengerList',
-            contextPath: '/Passenger'
+            entitySet: 'Passenger'
         },
         CustomPageDefinitions
     );

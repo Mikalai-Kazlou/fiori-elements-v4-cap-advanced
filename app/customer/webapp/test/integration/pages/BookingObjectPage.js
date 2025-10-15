@@ -10,7 +10,7 @@ sap.ui.define(['sap/fe/test/ObjectPage'], function(ObjectPage) {
         {
             appId: 'sap.fe.cap.customer',
             componentId: 'BookingObjectPage',
-            contextPath: '/Passenger/to_Booking'
+            entitySet: 'Booking'
         },
         CustomPageDefinitions
     );

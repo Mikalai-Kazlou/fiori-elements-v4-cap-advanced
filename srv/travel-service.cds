@@ -49,6 +49,9 @@ service TravelService @(path:'/processor') {
 
   entity SupplementScope as projection on my.SupplementScope;
 
+  // Function import used in Controller Extension 'PassengerOPExtend.js' to calculate booking data
+  function getBookingDataOfPassenger(CustomerID: String) returns my.BookingData;
+
   // Booking, Travel, Passenger: Use "FullName" as text annotation of CustomerID
   annotate Booking {
     to_Customer @Common.Text: to_Customer.FullName

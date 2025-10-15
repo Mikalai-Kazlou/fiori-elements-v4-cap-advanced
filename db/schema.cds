@@ -62,7 +62,11 @@ entity SupplementScope {
   TargetValue  : Integer @Common.Label: 'Target Value';
   DeviationRangeLowValue : Integer @Common.Label: 'Deviation Range Threshold';
   ToleranceRangeLowValue : Integer @Common.Label: 'Tolerance Range Threshold'; 
-}
+};
+
+type BookingData: {
+  HasNewBookings: Boolean
+};
 
 
 //
